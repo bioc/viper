@@ -400,6 +400,7 @@ aREA <- function(eset, regulon, method=c("auto", "matrix", "loop"), minsize=20, 
         class(regulon) <- "regulon"
     }
     targets <- unique(unlist(lapply(regulon, function(x) names(x$tfmode)), use.names=FALSE))
+    if (length(which(is.na(eset)))>0) method <- "loop"
     if (method=="auto") {
         method <- "matrix"
         if (length(targets)>1000) method <- "loop"
