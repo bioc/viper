@@ -441,10 +441,19 @@ shadowRegulon <- function(ss, nes, regul, regulators=.05, shadow=.05, targets=10
 aecdf <- function(dnull, symmetric=FALSE, n=100) {
     dnull <- dnull[is.finite(dnull)]
     if (symmetric) {
-        iqr <- quantile(abs(dnull), c(.5, 1-5/length(dnull)))
+        tmp <- sort(abs(dnull), decreasing=T)
+        i <- 4
+        n <- 4
+        while(n<14) {
+            i <- i+1
+            n <- length(unique(tmp[1:i]))
+            if (n==5) iq1 <- i
+        }
+        tl1 <- i
+        iqr <- quantile(abs(dnull), c(.5, 1-iq1/length(dnull)))
         epd <- ecdf(abs(dnull))
         a <- list(x=knots(epd), y=epd(knots(epd)))
-        fit <- lm(y~0+x, data=list(x=a$x[length(a$x)-(15:4)]-iqr[2], y=log(1-epd(iqr[2]))-log(1-a$y[length(a$x)-(15:4)])))
+        fit <- lm(y~0+x, data=list(x=a$x[length(a$x)-(tl1:iq1)+1]-iqr[2], y=log(1-epd(iqr[2]))-log(1-a$y[length(a$x)-(tl1:iq1)+1])))
         val <- seq(0, iqr[2], length=n)
         pd <- approxfun(val, epd(val), method="linear", yleft=0, rule=2)
         dnull <- function(x, alternative=c("two.sided", "greater", "less")) {
@@ -464,11 +473,29 @@ aecdf <- function(dnull, symmetric=FALSE, n=100) {
         }
         return(dnull)
     }
-    iqr <- quantile(dnull, c(5/length(dnull), .5, 1-5/length(dnull)))
+    tmp <- sort(dnull, decreasing=FALSE)
+    i <- 4
+    n <- 4
+    while(n<14) {
+        i <- i+1
+        n <- length(unique(tmp[1:i]))
+        if (n==5) iq1 <- i
+    }
+    tl1 <- i
+    tmp <- sort(dnull, decreasing=TRUE)
+    i <- 4
+    n <- 4
+    while(n<14) {
+        i <- i+1
+        n <- length(unique(tmp[1:i]))
+        if (n==5) iq2 <- i
+    }
+    tl2 <- i
+    iqr <- quantile(dnull, c(iq1/length(dnull), .5, 1-iq2/length(dnull)))
     epd <- ecdf(dnull)
     a <- list(x=knots(epd), y=epd(knots(epd)))
-    fit1 <- lm(y~0+x, data=list(x=a$x[5:14]-iqr[1], y=log(epd(iqr[1]))-log(a$y[5:14])))
-    fit2 <- lm(y~0+x, data=list(x=a$x[length(a$x)-(15:4)]-iqr[3], y=log(1-epd(iqr[3]))-log(1-a$y[length(a$x)-(15:4)])))
+    fit1 <- lm(y~0+x, data=list(x=a$x[iq1:tl1]-iqr[1], y=log(epd(iqr[1]))-log(a$y[iq1:tl1])))
+    fit2 <- lm(y~0+x, data=list(x=a$x[length(a$x)-(tl2:iq2)+1]-iqr[3], y=log(1-epd(iqr[3]))-log(1-a$y[length(a$x)-(tl2:iq2)+1])))
     val <- seq(iqr[1], iqr[3], length=n)
     pd <- approxfun(val, epd(val), method="linear", rule=2)
     dnull <- function(x, alternative=c("two.sided", "greater", "less")) {

@@ -4,12 +4,14 @@
 \alias{aecdf}
 \title{Approximate empirical commulative distribution function}
 \usage{
-aecdf(dnull, symmetric = FALSE)
+aecdf(dnull, symmetric = FALSE, n = 100)
 }
 \arguments{
 \item{dnull}{Numerical vector representing the null model}
 
-\item{symmetric}{Logical, whether the distribution should be treated as symmetric around zero and only one tail should be approximated}
+\item{symmetric}{Logical, whether the distribution should betreated as symmetric around zero and only one tail should be approximated}
+
+\item{n}{Integer indicating the number of points to evaluate the empirical cummulative probability function}
 }
 \value{
 function with two parameters, \code{x} and \code{alternative}
