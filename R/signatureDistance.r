@@ -222,7 +222,7 @@ scale.signatureDistance <- function(x, center=TRUE, scale=TRUE) {
 
 viperSimilarity <- function(x, nn=NULL, ws=c(4, 2), method=c("two.sided", "greater", "less")) {
     method <- match.arg(method)
-    if (max(x, na.rm=TRUE)>=0) {
+    if (min(x, na.rm=TRUE)>=0) {
         x <- apply(x, 2, function(x) rank(x, na.last="keep"))
         x <- qnorm(t(t(x)/(colSums(!is.na(x))+1)))
     }
