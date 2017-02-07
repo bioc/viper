@@ -224,7 +224,7 @@ viperSimilarity <- function(x, nn=NULL, ws=c(4, 2), method=c("two.sided", "great
     method <- match.arg(method)
     if (max(x, na.rm=TRUE)>=0) {
         x <- apply(x, 2, function(x) rank(x, na.last="keep"))
-        x <- qnorm(t(t(x)/colSums(!is.na(x))))
+        x <- qnorm(t(t(x)/(colSums(!is.na(x))+1)))
     }
     x[is.na(x)] <- 0
     xw <- x
