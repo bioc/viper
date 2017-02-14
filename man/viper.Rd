@@ -5,7 +5,7 @@
 \title{VIPER}
 \usage{
 viper(eset, regulon, dnull = NULL, pleiotropy = FALSE, nes = TRUE,
-  method = c("scale", "rank", "mad", "ttest", "none"), bootstraps = 0,
+  method = c("none", "scale", "rank", "mad", "ttest"), bootstraps = 0,
   minsize = 25, adaptive.size = FALSE, eset.filter = TRUE,
   pleiotropyArgs = list(regulators = 0.05, shadow = 0.05, targets = 10,
   penalty = 20, method = "adaptive"), cores = 1, verbose = TRUE)

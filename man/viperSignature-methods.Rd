@@ -10,11 +10,12 @@
 viperSignature(eset, ...)
 
 \S4method{viperSignature}{ExpressionSet}(eset, pheno, refgroup,
-  method = c("ttest", "zscore", "mean"), per = 1000, seed = 1,
-  cores = 1, verbose = TRUE)
+  method = c("zscore", "ttest", "mean"), per = 100, bootstrap = TRUE,
+  seed = 1, cores = 1, verbose = TRUE)
 
-\S4method{viperSignature}{matrix}(eset, ref, method = c("ttest", "zscore",
-  "mean"), per = 1000, seed = 1, cores = 1, verbose = TRUE)
+\S4method{viperSignature}{matrix}(eset, ref, method = c("zscore", "ttest",
+  "mean"), per = 100, bootstrap = TRUE, seed = 1, cores = 1,
+  verbose = TRUE)
 }
 \arguments{
 \item{eset}{ExpressionSet object or numeric matrix containing the test dataset, with genes in rows and samples in columns}
@@ -28,6 +29,8 @@ viperSignature(eset, ...)
 \item{method}{Character string indicating how to compute the signature and null model, either ttest, zscore or mean}
 
 \item{per}{Integer indicating the number of sample permutations}
+
+\item{bootstrap}{Logical, whether null model should be estimated with bootstrap. In this case, only reference samples are used.}
 
 \item{seed}{Integer indicating the seed for the random sample generation. The system default is used when set to zero}
 
