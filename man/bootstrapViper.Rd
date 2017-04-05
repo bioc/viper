@@ -4,8 +4,9 @@
 \alias{bootstrapViper}
 \title{bootstrapsViper}
 \usage{
-bootstrapViper(eset, regulon, nes = TRUE, bootstraps = 10, cores = 1,
-  verbose = TRUE)
+bootstrapViper(eset, regulon, nes = TRUE, bootstraps = 10,
+  eset.filter = FALSE, adaptive.size = TRUE, minsize = 20, mvws = 1,
+  cores = 1, verbose = TRUE)
 }
 \arguments{
 \item{eset}{ExpressionSet object or Numeric matrix containing the expression data, with samples in columns and genes in rows}
@@ -15,6 +16,14 @@ bootstrapViper(eset, regulon, nes = TRUE, bootstraps = 10, cores = 1,
 \item{nes}{Logical, whether the enrichment score reported should be normalized}
 
 \item{bootstraps}{Integer indicating the number of bootstraps iterations to perform. Only the scale method is implemented with bootstraps.}
+
+\item{eset.filter}{Logical, whether the dataset should be limited only to the genes represented in the interactome}
+
+\item{adaptive.size}{Logical, whether the weighting scores should be taken into account for computing the regulon size}
+
+\item{minsize}{Integer indicating the minimum number of targets allowed per regulon}
+
+\item{mvws}{Number or vector indicating either the exponent score for the metaViper weights, or the inflection point and trend for the sigmoid function describing the weights in metaViper}
 
 \item{cores}{Integer indicating the number of cores to use (only 1 in Windows-based systems)}
 
@@ -40,4 +49,3 @@ res$sd[1:5, 1:5]
 \seealso{
 \code{\link{viper}}
 }
-

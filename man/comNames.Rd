@@ -20,4 +20,3 @@ This function convers combinatorial annotations
 \seealso{
 \code{\link{msviper}}
 }
-

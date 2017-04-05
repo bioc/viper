@@ -3,8 +3,8 @@
 \docType{methods}
 \name{rowTtest}
 \alias{rowTtest}
-\alias{rowTtest,ExpressionSet-method}
 \alias{rowTtest,matrix-method}
+\alias{rowTtest,ExpressionSet-method}
 \title{Student's t-test for rows}
 \usage{
 rowTtest(x, ...)
@@ -49,4 +49,3 @@ res <- rowTtest(dset, "description", "CB", "N")
 res$statistic[1:5, ]
 res$p.value[1:5, ]
 }
-

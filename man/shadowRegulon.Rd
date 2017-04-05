@@ -30,4 +30,3 @@ Corrected regulon object
 \description{
 This function penalyze the regulatory interactions based on pleiotropy analysis
 }
-

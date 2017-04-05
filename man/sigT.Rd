@@ -19,4 +19,3 @@ Numeric vector
 \description{
 This function transforms a numeric vector using a sigmoid function
 }
-

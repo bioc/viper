@@ -17,4 +17,3 @@ Matrix
 \description{
 This function filters the columns of a matrix returning always a two dimensional matrix
 }
-

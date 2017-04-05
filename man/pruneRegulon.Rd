@@ -4,12 +4,14 @@
 \alias{pruneRegulon}
 \title{Prune Regulons}
 \usage{
-pruneRegulon(regulon, cutoff = 50, eliminate = FALSE)
+pruneRegulon(regulon, cutoff = 50, adaptive = TRUE, eliminate = FALSE)
 }
 \arguments{
 \item{regulon}{Object of class regulon}
 
 \item{cutoff}{Number indicating the maximum size for the regulons (maximum number of target genes)}
+
+\item{adaptive}{Logical, whether adaptive size should be used (i.e. sum(likelihood^2))}
 
 \item{eliminate}{Logical whether regulons smalles than \code{cutoff} should be eliminated}
 }
@@ -28,4 +30,3 @@ hist(sapply(preg, function(x) sum(x$likelihood)/max(x$likelihood)), nclass=20)
 \seealso{
 \code{\link{viper}}, \code{\link{msviper}}
 }
-

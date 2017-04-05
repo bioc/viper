@@ -19,4 +19,3 @@ Object of class dist
 \description{
 This function transforms a signatureDistance object into a dist object
 }
-

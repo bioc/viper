@@ -19,4 +19,3 @@ function with two parameters, \code{x} and \code{alternative}
 \description{
 This function generates an empirical null model that computes a normalized statistics and p-value
 }
-

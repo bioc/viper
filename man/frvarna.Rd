@@ -21,4 +21,3 @@ tmp <- exprs(dset)[1:10, ]
 tmp[round(runif(100, 1, length(tmp)))] <- NA
 frvarna(tmp)
 }
-

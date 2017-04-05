@@ -25,4 +25,3 @@ data(bcellViper, package="bcellViper")
 res <- scaleGroups(exprs(dset)[, 1:20], rep(1:4, rep(5, 4)))
 res[1:5, ]
 }
-

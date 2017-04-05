@@ -3,8 +3,8 @@
 \docType{methods}
 \name{ttestNull}
 \alias{ttestNull}
-\alias{ttestNull,ExpressionSet-method}
 \alias{ttestNull,matrix-method}
+\alias{ttestNull,ExpressionSet-method}
 \title{Null model by sample permutation testing}
 \usage{
 ttestNull(x, ...)
@@ -58,4 +58,3 @@ plot(density(dnull))
 \seealso{
 \code{\link{msviper}}, \code{\link{viper}}
 }
-

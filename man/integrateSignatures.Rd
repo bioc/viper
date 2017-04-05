@@ -24,4 +24,3 @@ isig <- integrateSignatures(sig)
 plot(density(sig))
 lines(density(isig, adj=1.5), col="red")
 }
-

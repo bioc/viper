@@ -33,4 +33,3 @@ print(regul)
 \seealso{
 \code{\link{msviper}}, \code{\link{viper}}
 }
-

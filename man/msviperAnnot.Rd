@@ -33,4 +33,3 @@ plot(mra, cex=.7)
 \seealso{
 \code{\link{msviper}}
 }
-

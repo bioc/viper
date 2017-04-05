@@ -25,4 +25,3 @@ summary(mra)
 \seealso{
 \code{\link{msviper}}
 }
-

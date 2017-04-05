@@ -1,5 +1,5 @@
 Package: viper
-Version: 1.9.3
+Version: 1.9.5
 Date: 2013-04-09
 Title: Virtual Inference of Protein-activity by Enriched Regulon analysis
 Author: Mariano J Alvarez <reef103@gmail.com>
@@ -15,10 +15,11 @@ Imports:
     e1071,
     KernSmooth
 Suggests:
-    bcellViper
+    bcellViper,
+    arcane.networks
 Description: Inference of protein activity from gene expression data, including
     the VIPER and msVIPER algorithms
 License: file LICENSE
 biocViews: SystemsBiology, NetworkEnrichment, GeneExpression,
     FunctionalPrediction, GeneRegulation
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1

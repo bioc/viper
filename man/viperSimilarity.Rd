@@ -32,4 +32,3 @@ dd[1:5, 1:5]
 scale(dd)[1:5, 1:5]
 as.matrix(as.dist(dd))[1:5, 1:5]
 }
-

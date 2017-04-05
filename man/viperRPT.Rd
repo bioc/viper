@@ -36,4 +36,3 @@ rpt[1:5, 1:5]
 \seealso{
 \code{\link{viper}}
 }
-

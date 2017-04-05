@@ -29,4 +29,3 @@ mra1 <- msviperClass(mra$es$nes, sig, regulon)
 summary(mra1)
 plot(mra1)
 }
-

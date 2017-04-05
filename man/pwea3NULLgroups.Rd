@@ -25,4 +25,3 @@ A list containing two elements:
 \description{
 This function generates the regulon-specific NULL models
 }
-

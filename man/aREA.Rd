@@ -28,4 +28,3 @@ List of two elements, enrichment score and normalized enrichment score
 \description{
 This function performs wREA enrichment analysis on a set of signatues
 }
-

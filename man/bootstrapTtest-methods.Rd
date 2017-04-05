@@ -3,8 +3,8 @@
 \docType{methods}
 \name{bootstrapTtest}
 \alias{bootstrapTtest}
-\alias{bootstrapTtest,ExpressionSet-method}
 \alias{bootstrapTtest,matrix-method}
+\alias{bootstrapTtest,ExpressionSet-method}
 \title{Bootstrapped signature by t-test}
 \usage{
 bootstrapTtest(x, ...)
@@ -56,4 +56,3 @@ plot(density(sig[1907, ]))
 \seealso{
 \code{\link{msviper}}
 }
-

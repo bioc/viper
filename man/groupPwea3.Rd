@@ -36,4 +36,3 @@ A list containing four matrices:
 \description{
 This function performs a Proportionally Weighted Enrichment Analysis on groups of gene-sets
 }
-

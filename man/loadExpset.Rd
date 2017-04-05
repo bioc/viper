@@ -15,4 +15,3 @@ List containing a numeric matrix of expression data with samples in columns and 
 \description{
 This function load an expression file into a matrix
 }
-

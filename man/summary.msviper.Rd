@@ -19,4 +19,3 @@ Data.frame with results
 \description{
 This function generates a table of msviper results
 }
-

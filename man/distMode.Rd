@@ -27,4 +27,3 @@ plot(density(d1[, 1]))
 abline(v=c(mean(d1[, 1]), median(d1[, 1]), distMode(d1[, 1])), col=c("green", "red", "blue"))
 legend("topleft", c("Mean", "Median", "Mode"), col=c("green", "red", "blue"), lwd=4)
 }
-

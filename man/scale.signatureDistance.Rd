@@ -19,4 +19,3 @@ Scaled signatureDistance object
 \description{
 This function scales the signatureDistance so its range is (-1, 1)
 }
-

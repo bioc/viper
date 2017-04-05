@@ -3,8 +3,8 @@
 \docType{methods}
 \name{filterCV}
 \alias{filterCV}
-\alias{filterCV,ExpressionSet-method}
 \alias{filterCV,matrix-method}
+\alias{filterCV,ExpressionSet-method}
 \title{Coefficient of variation filter}
 \usage{
 filterCV(expset, ...)
@@ -34,4 +34,3 @@ dim(d1)
 d1 <- filterCV(d1)
 dim(d1)
 }
-

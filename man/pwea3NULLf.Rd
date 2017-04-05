@@ -19,4 +19,3 @@ List of function to compute NES and p-value
 \description{
 This function generates the NULL model function, which computes the normalized enrichment score and associated p-value
 }
-

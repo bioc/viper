@@ -66,4 +66,3 @@ regulon
 dim(res)
 res[1:5, 1:5]
 }
-

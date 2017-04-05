@@ -25,4 +25,3 @@ y <- x+rnorm(500)
 kde2 <- approxk2d(cbind(x, y))
 plot(x, y, pch=20, col=hsv(0, kde2/max(kde2), 1))
 }
-

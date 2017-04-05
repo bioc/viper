@@ -1,3 +1,9 @@
+new for version 1.9.5
+=====================
+* metaVIPER analysis was implemented in the viper function. It can be invoked by simply passing a list of regulons objects to the regulon parameter in the viper function.
+
+* To improve stability of p-value estimations with sample permutations, a normal distribution for the ES is assumed when less than 500 permutations are provided for the NULL model.
+
 new for version 1.5.5
 =====================
 Example code was modified to reduce computation time
