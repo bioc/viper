@@ -15,8 +15,7 @@ Imports:
     e1071,
     KernSmooth
 Suggests:
-    bcellViper,
-    arcane.networks
+    bcellViper
 Description: Inference of protein activity from gene expression data, including
     the VIPER and msVIPER algorithms
 License: file LICENSE
