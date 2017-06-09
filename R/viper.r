@@ -551,6 +551,12 @@ aREA <- function(eset, regulon, method=c("auto", "matrix", "loop"), minsize=20, 
         t1 <- qnorm(t1)
         t2 <- qnorm(t2)
         if (is.null(wm)) wm <- matrix(1, nrow(eset), ncol(eset), dimnames=list(rownames(eset), colnames(eset)))
+        else {
+            if (is.null(ncol(wm))) wm <- matrix(wm, length(wm), ncol(eset), dimnames=list(names(wm), colnames(eset)))
+            wm <- filterRowMatrix(wm, match(rownames(eset), rownames(wm)))
+            rownames(wm) <- rownames(eset)
+            wm[is.na(wm)] <- 0
+        }
         wm[is.na(t1)] <- 0
         t1[is.na(t1)] <- 0
         t2[is.na(t2)] <- 0

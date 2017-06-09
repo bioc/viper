@@ -319,6 +319,7 @@ rowVars <- function(x) {
 #' @param cutoff Number indicating the maximum size for the regulons (maximum number of target genes)
 #' @param adaptive Logical, whether adaptive size should be used (i.e. sum(likelihood^2))
 #' @param eliminate Logical whether regulons smalles than \code{cutoff} should be eliminated
+#' @param wm Optional numeric vector of weights (0; 1) for the genes
 #' @return Prunned regulon
 #' @seealso \code{\link{viper}}, \code{\link{msviper}}
 #' @examples
@@ -327,14 +328,20 @@ rowVars <- function(x) {
 #' preg <- pruneRegulon(regulon, 400)
 #' hist(sapply(preg, function(x) sum(x$likelihood)/max(x$likelihood)), nclass=20)
 #' @export
-pruneRegulon <- function(regulon, cutoff=50, adaptive=TRUE, eliminate=FALSE) {
+pruneRegulon <- function(regulon, cutoff=50, adaptive=TRUE, eliminate=FALSE, wm=NULL) {
     if (adaptive) {
-        regulon <- lapply(regulon, function(x, cutoff) {
-            pos <- order(x$likelihood, decreasing=TRUE)
-            ws <- (x$likelihood/max(x$likelihood))^2
+        regulon <- lapply(regulon, function(x, cutoff, wm) {
+            likelihood <- x$likelihood
+            if (!is.null(wm)) {
+                wm <- wm[match(names(x$tfmode), names(wm))]
+                wm[is.na(wm)] <- 0
+                likelihood <- likelihood * wm
+            }
+            pos <- order(likelihood, decreasing=TRUE)
+            ws <- (likelihood/max(likelihood))^2
             pos <- pos[cumsum(ws[pos])<=cutoff]
             return(list(tfmode=x$tfmode[pos], likelihood=x$likelihood[pos]))
-        }, cutoff=cutoff)
+        }, cutoff=cutoff, wm=wm)
     }
     else {
         regulon <- lapply(regulon, function(x, cutoff) {
