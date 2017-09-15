@@ -225,6 +225,7 @@ msviperCombinatorial <- function(mobj, regulators=100, nullmodel=NULL, minsize=N
 #' @export
 
 msviperSynergy <- function(mobj, per=1000, seed=1, cores=1, verbose=TRUE) {
+    if (length(grep("--", names(mobj$regulon)))==0) stop("No significant co-regulons to evaluate", call.=FALSE)
     if (seed>0) set.seed(round(seed))
     pos <- which(sapply(strsplit(names(mobj$regulon), "--"), length)>1)
     pb <- NULL

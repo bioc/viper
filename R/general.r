@@ -18,7 +18,7 @@
 #' @export
 #' @docType methods
 #' @rdname filterCV-methods
-setGeneric("filterCV", function(expset, ...) standardGenetic("filterCV"))
+setGeneric("filterCV", function(expset, ...) standardGeneric("filterCV"))
 
 #' @rdname filterCV-methods
 #' @aliases filterCV,matrix-method
