@@ -452,7 +452,7 @@ aecdf <- function(dnull, symmetric=FALSE, n=100) {
         tl1 <- i
         iqr <- quantile(abs(dnull), c(.5, 1-iq1/length(dnull)))
         epd <- ecdf(abs(dnull))
-        a <- list(x=knots(epd), y=epd(knots(epd)))
+        a <- list(x=abs(dnull), y=epd(abs(dnull)))
         fit <- lm(y~0+x, data=list(x=a$x[length(a$x)-(tl1:iq1)+1]-iqr[2], y=log(1-epd(iqr[2]))-log(1-a$y[length(a$x)-(tl1:iq1)+1])))
         val <- seq(0, iqr[2], length=n)
         pd <- approxfun(val, epd(val), method="linear", yleft=0, rule=2)
@@ -493,7 +493,7 @@ aecdf <- function(dnull, symmetric=FALSE, n=100) {
     tl2 <- i
     iqr <- quantile(dnull, c(iq1/length(dnull), .5, 1-iq2/length(dnull)))
     epd <- ecdf(dnull)
-    a <- list(x=knots(epd), y=epd(knots(epd)))
+    a <- list(x=dnull, y=epd(dnull))
     fit1 <- lm(y~0+x, data=list(x=a$x[iq1:tl1]-iqr[1], y=log(epd(iqr[1]))-log(a$y[iq1:tl1])))
     fit2 <- lm(y~0+x, data=list(x=a$x[length(a$x)-(tl2:iq2)+1]-iqr[3], y=log(1-epd(iqr[3]))-log(1-a$y[length(a$x)-(tl2:iq2)+1])))
     val <- seq(iqr[1], iqr[3], length=n)
@@ -522,7 +522,7 @@ aecdf1 <- function(dnull, symmetric=FALSE, x, alternative=c("two.sided", "greate
     if (symmetric) {
         iqr <- quantile(abs(dnull), c(.5, 1-5/length(dnull)))
         pd <- ecdf(abs(dnull))
-        a <- list(x=knots(pd), y=pd(knots(pd)))
+        a <- list(x=abs(dnull), y=pd(abs(dnull)))
         fit <- lm(y~0+x, data=list(x=a$x[length(a$x)-(15:4)]-iqr[2], y=log(1-pd(iqr[2]))-log(1-a$y[length(a$x)-(15:4)])))
         alternative <- match.arg(alternative)
         x1 <- abs(x)
@@ -539,7 +539,7 @@ aecdf1 <- function(dnull, symmetric=FALSE, x, alternative=c("two.sided", "greate
     }
     iqr <- quantile(dnull, c(5/length(dnull), .5, 1-5/length(dnull)))
     pd <- ecdf(dnull)
-    a <- list(x=knots(pd), y=pd(knots(pd)))
+    a <- list(x=dnull, y=pd(dnull))
     fit1 <- lm(y~0+x, data=list(x=a$x[5:14]-iqr[1], y=log(pd(iqr[1]))-log(a$y[5:14])))
     fit2 <- lm(y~0+x, data=list(x=a$x[length(a$x)-(15:4)]-iqr[3], y=log(1-pd(iqr[3]))-log(1-a$y[length(a$x)-(15:4)])))
     alternative <- match.arg(alternative)
