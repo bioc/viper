@@ -66,10 +66,11 @@ Viper requires the R-system (\url{http://www.r-project.org}), the \emph{mixtools
 After installing R, all required components can be obtained with:
 
 <<echo=TRUE, eval=FALSE, results=hide>>=
-source("http://bioconductor.org/biocLite.R")
-biocLite("mixtools")
-biocLite("bcellViper")
-biocLite("viper")
+if (!requireNamespace("BiocManager", quietly=TRUE))
+    install.packages("BiocManager")
+BiocManager::install("mixtools")
+BiocManager::install("bcellViper")
+BiocManager::install("viper")
 @
 
 %----
