@@ -103,7 +103,8 @@ viper <- function(eset, regulon, dnull=NULL, pleiotropy=FALSE, nes=TRUE, method=
             tmp <- aREA(dnull, regulon, cores=cores, minsize=0, verbose=verbose)$es
             if (ncol(tmp)>499) {
                 nes <- t(sapply(1:nrow(tmp), function(i, tmp, es) {
-                    aecdf1(tmp[i, ], symmetric=TRUE, es[i, ])$nes
+                    #aecdf1(tmp[i, ], symmetric=TRUE, es[i, ])$nes
+                    aecdf(tmp[i, ], symmetric=TRUE)(es[i, ])$nes
                 }, tmp=tmp, es=es$es))
                 rownames(nes) <- rownames(es$nes)
             }
@@ -125,7 +126,8 @@ viper <- function(eset, regulon, dnull=NULL, pleiotropy=FALSE, nes=TRUE, method=
                         if (is.null(dnull)) tmp <-aREA(ss[, i], sreg, minsize=5, cores=1)$nes[, 1]
                         else {
                             tmp <- aREA(cbind(ss[, i], dnull), sreg, minsize=5, cores=1)$es
-                            tmp <- apply(tmp, 1, function(x) aecdf1(x[-1], symmetric=TRUE, x[1])$nes)
+                            #tmp <- apply(tmp, 1, function(x) aecdf1(x[-1], symmetric=TRUE, x[1])$nes)
+                            tmp <- apply(tmp, 1, function(x) aecdf(x[-1], symmetric=TRUE)(x[1])$nes)
                         }
                         nes[match(names(tmp), names(nes))] <- tmp
                     }
@@ -142,7 +144,8 @@ viper <- function(eset, regulon, dnull=NULL, pleiotropy=FALSE, nes=TRUE, method=
                         if (is.null(dnull)) tmp <-aREA(ss[, i], sreg, minsize=5)$nes[, 1]
                         else {
                             tmp <- aREA(cbind(ss[, i], dnull), sreg, minsize=5)$es
-                            tmp <- apply(tmp, 1, function(x) aecdf1(x[-1], symmetric=TRUE, x[1])$nes)
+                            #tmp <- apply(tmp, 1, function(x) aecdf1(x[-1], symmetric=TRUE, x[1])$nes)
+                            tmp <- apply(tmp, 1, function(x) aecdf(x[-1], symmetric=TRUE)(x[1])$nes)
                         }
                         nes[match(names(tmp), names(nes))] <- tmp
                     }

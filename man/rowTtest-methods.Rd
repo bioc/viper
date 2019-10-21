@@ -12,8 +12,8 @@ rowTtest(x, ...)
 \S4method{rowTtest}{matrix}(x, y = NULL, mu = 0,
   alternative = "two.sided")
 
-\S4method{rowTtest}{ExpressionSet}(x, pheno, group1, group2 = NULL, mu = 0,
-  alternative = "two.sided")
+\S4method{rowTtest}{ExpressionSet}(x, pheno, group1, group2 = NULL,
+  mu = 0, alternative = "two.sided")
 }
 \arguments{
 \item{x}{ExpressionSet object or Numerical matrix containing the test samples}

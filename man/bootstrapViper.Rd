@@ -5,8 +5,8 @@
 \title{bootstrapsViper}
 \usage{
 bootstrapViper(eset, regulon, nes = TRUE, bootstraps = 10,
-  eset.filter = FALSE, adaptive.size = TRUE, minsize = 20, mvws = 1,
-  cores = 1, verbose = TRUE)
+  eset.filter = FALSE, adaptive.size = TRUE, minsize = 20,
+  mvws = 1, cores = 1, verbose = TRUE)
 }
 \arguments{
 \item{eset}{ExpressionSet object or Numeric matrix containing the expression data, with samples in columns and genes in rows}

@@ -4,7 +4,8 @@
 \alias{pruneRegulon}
 \title{Prune Regulons}
 \usage{
-pruneRegulon(regulon, cutoff = 50, adaptive = TRUE, eliminate = FALSE)
+pruneRegulon(regulon, cutoff = 50, adaptive = TRUE,
+  eliminate = FALSE, wm = NULL)
 }
 \arguments{
 \item{regulon}{Object of class regulon}
@@ -14,6 +15,8 @@ pruneRegulon(regulon, cutoff = 50, adaptive = TRUE, eliminate = FALSE)
 \item{adaptive}{Logical, whether adaptive size should be used (i.e. sum(likelihood^2))}
 
 \item{eliminate}{Logical whether regulons smalles than \code{cutoff} should be eliminated}
+
+\item{wm}{Optional numeric vector of weights (0; 1) for the genes}
 }
 \value{
 Prunned regulon

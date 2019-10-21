@@ -6,9 +6,10 @@
 \usage{
 viper(eset, regulon, dnull = NULL, pleiotropy = FALSE, nes = TRUE,
   method = c("none", "scale", "rank", "mad", "ttest"), bootstraps = 0,
-  minsize = 25, adaptive.size = FALSE, eset.filter = TRUE, mvws = 1,
-  pleiotropyArgs = list(regulators = 0.05, shadow = 0.05, targets = 10,
-  penalty = 20, method = "adaptive"), cores = 1, verbose = TRUE)
+  minsize = 25, adaptive.size = FALSE, eset.filter = TRUE,
+  mvws = 1, pleiotropyArgs = list(regulators = 0.05, shadow = 0.05,
+  targets = 10, penalty = 20, method = "adaptive"), cores = 1,
+  verbose = TRUE)
 }
 \arguments{
 \item{eset}{ExpressionSet object or Numeric matrix containing the expression data or gene expression signatures, with samples in columns and genes in rows}

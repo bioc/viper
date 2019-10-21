@@ -9,8 +9,8 @@
 \usage{
 ttestNull(x, ...)
 
-\S4method{ttestNull}{matrix}(x, y, per = 1000, repos = TRUE, seed = 1,
-  cores = 1, verbose = TRUE)
+\S4method{ttestNull}{matrix}(x, y, per = 1000, repos = TRUE,
+  seed = 1, cores = 1, verbose = TRUE)
 
 \S4method{ttestNull}{ExpressionSet}(x, pheno, group1, group2, per = 1000,
   repos = TRUE, seed = 1, verbose = TRUE)

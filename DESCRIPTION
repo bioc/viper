@@ -1,5 +1,5 @@
 Package: viper
-Version: 1.19.2
+Version: 1.19.3
 Date: 2013-04-09
 Title: Virtual Inference of Protein-activity by Enriched Regulon analysis
 Author: Mariano J Alvarez <reef103@gmail.com>
@@ -21,4 +21,5 @@ Description: Inference of protein activity from gene expression data, including
 License: file LICENSE
 biocViews: SystemsBiology, NetworkEnrichment, GeneExpression,
     FunctionalPrediction, GeneRegulation
-RoxygenNote: 6.0.1
+Encoding: UTF-8
+RoxygenNote: 6.1.1

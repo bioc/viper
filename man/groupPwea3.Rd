@@ -5,7 +5,8 @@
 \title{Proportionally Weighted Enrichment Analysis for gene-set groups}
 \usage{
 groupPwea3(rlist, groups, nullpw = NULL, alternative = c("two.sided",
-  "less", "greater"), per = 0, minsize = 5, cores = 1, verbose = TRUE)
+  "less", "greater"), per = 0, minsize = 5, cores = 1,
+  verbose = TRUE)
 }
 \arguments{
 \item{rlist}{Named vector containing the scores to rank the expression profile or matrix where columns contains bootstraped signatures}

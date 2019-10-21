@@ -4,10 +4,10 @@
 \alias{plot.msviper}
 \title{Plot msviper results}
 \usage{
-\method{plot}{msviper}(x, mrs = 10, color = c("cornflowerblue", "salmon"),
-  pval = NULL, bins = 500, cex = 0, density = 0, smooth = 0,
-  sep = 0.2, hybrid = TRUE, include = c("expression", "activity"),
-  gama = 2, ...)
+\method{plot}{msviper}(x, mrs = 10, color = c("cornflowerblue",
+  "salmon"), pval = NULL, bins = 500, cex = 0, density = 0,
+  smooth = 0, sep = 0.2, hybrid = TRUE, include = c("expression",
+  "activity"), gama = 2, ...)
 }
 \arguments{
 \item{x}{msviper object produced by \code{msviper} function}

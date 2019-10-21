@@ -13,9 +13,9 @@ viperSignature(eset, ...)
   method = c("zscore", "ttest", "mean"), per = 100, bootstrap = TRUE,
   seed = 1, cores = 1, verbose = TRUE)
 
-\S4method{viperSignature}{matrix}(eset, ref, method = c("zscore", "ttest",
-  "mean"), per = 100, bootstrap = TRUE, seed = 1, cores = 1,
-  verbose = TRUE)
+\S4method{viperSignature}{matrix}(eset, ref, method = c("zscore",
+  "ttest", "mean"), per = 100, bootstrap = TRUE, seed = 1,
+  cores = 1, verbose = TRUE)
 }
 \arguments{
 \item{eset}{ExpressionSet object or numeric matrix containing the test dataset, with genes in rows and samples in columns}

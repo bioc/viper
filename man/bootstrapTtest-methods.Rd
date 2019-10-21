@@ -9,11 +9,11 @@
 \usage{
 bootstrapTtest(x, ...)
 
-\S4method{bootstrapTtest}{matrix}(x, y, per = 100, seed = 1, cores = 1,
-  verbose = TRUE)
+\S4method{bootstrapTtest}{matrix}(x, y, per = 100, seed = 1,
+  cores = 1, verbose = TRUE)
 
-\S4method{bootstrapTtest}{ExpressionSet}(x, pheno, group1, group2, per = 100,
-  seed = 1, verbose = TRUE)
+\S4method{bootstrapTtest}{ExpressionSet}(x, pheno, group1, group2,
+  per = 100, seed = 1, verbose = TRUE)
 }
 \arguments{
 \item{x}{Matrix containing the test dataset}

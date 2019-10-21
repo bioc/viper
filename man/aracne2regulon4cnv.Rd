@@ -4,8 +4,8 @@
 \alias{aracne2regulon4cnv}
 \title{Regulon object generation from ARACNe results corrected by cnv}
 \usage{
-aracne2regulon4cnv(afile, eset, regeset, gene = FALSE, format = c("adj",
-  "3col"), verbose = TRUE)
+aracne2regulon4cnv(afile, eset, regeset, gene = FALSE,
+  format = c("adj", "3col"), verbose = TRUE)
 }
 \arguments{
 \item{afile}{Character string indicating the name of the ARACNe network file}

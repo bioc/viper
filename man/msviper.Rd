@@ -4,10 +4,11 @@
 \alias{msviper}
 \title{msVIPER}
 \usage{
-msviper(ges, regulon, nullmodel = NULL, pleiotropy = FALSE, minsize = 25,
-  adaptive.size = FALSE, ges.filter = TRUE, synergy = 0, level = 10,
-  pleiotropyArgs = list(regulators = 0.05, shadow = 0.05, targets = 10,
-  penalty = 20, method = "adaptive"), cores = 1, verbose = TRUE)
+msviper(ges, regulon, nullmodel = NULL, pleiotropy = FALSE,
+  minsize = 25, adaptive.size = FALSE, ges.filter = TRUE,
+  synergy = 0, level = 10, pleiotropyArgs = list(regulators = 0.05,
+  shadow = 0.05, targets = 10, penalty = 20, method = "adaptive"),
+  cores = 1, verbose = TRUE)
 }
 \arguments{
 \item{ges}{Vector containing the gene expression signature to analyze, or matrix with columns containing bootstraped signatures}

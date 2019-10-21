@@ -4,8 +4,8 @@
 \alias{viperRPT}
 \title{viperRPT}
 \usage{
-viperRPT(vipermat, expmat, weights = matrix(1, nrow(vipermat), ncol(vipermat),
-  dimnames = list(rownames(vipermat), colnames(vipermat))),
+viperRPT(vipermat, expmat, weights = matrix(1, nrow(vipermat),
+  ncol(vipermat), dimnames = list(rownames(vipermat), colnames(vipermat))),
   method = c("spline", "lineal", "rank"), robust = FALSE, cores = 1)
 }
 \arguments{
