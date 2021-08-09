@@ -39,11 +39,11 @@ aracne2regulon <- function(afile, eset, gene = FALSE, format=c("adj", "3col"), v
     },
     "3col"={
         tmp <- t(sapply(strsplit(readLines(afile), "\t"), function(x) x[1:3]))
-        aracne <- data.frame(tf=tmp[, 1], target=tmp[, 2], mi=as.numeric(tmp[, 3])/max(as.numeric(tmp[, 3])))
+        aracne <- data.frame(tf=factor(tmp[, 1]), target=factor(tmp[, 2]), mi=as.numeric(tmp[, 3])/max(as.numeric(tmp[, 3])))
     })
     if (gene) {
         if (verbose) message("Collapsing the interactomes to the gene level...")
-        tmp <- aracne[order(aracne$mi, decreasing=TRUE), ]
+        tmp <- aracne[order(aracne$mi, decreasing=TRUE), , drop=FALSE]
         tmp$tf <- annot[match(tmp$tf, annot[, 1]), 2]
         tmp$target <- annot[match(tmp$target, annot[, 1]), 2]
         aracne <- tmp[!duplicated(paste(tmp$tf, tmp$target, sep="_")), ]
@@ -52,8 +52,8 @@ aracne2regulon <- function(afile, eset, gene = FALSE, format=c("adj", "3col"), v
         dset <- filterCV(dset)
     }
     if (verbose) message("Generating the regulon objects...")
-    tmp <- aracne[!is.na(aracne$mi), ]
-    tmp <- tmp[rowSums(matrix(as.matrix(tmp[, 1:2]) %in% rownames(dset), nrow(tmp), 2))==2, ]
+    tmp <- aracne[!is.na(aracne$mi), , drop=FALSE]
+    tmp <- tmp[rowSums(matrix(as.matrix(tmp[, 1:2]) %in% rownames(dset), nrow(tmp), 2))==2, , drop=FALSE]
     aracne <- tapply(1:nrow(tmp), as.vector(tmp$tf), function(pos, tmp) {
         tfmode <- rep(0, length(pos))
         names(tfmode) <- tmp$target[pos]
@@ -119,20 +119,20 @@ aracne2regulon4cnv <- function(afile, eset, regeset, gene = FALSE, format=c("adj
         regdset <- t(sapply(tmp[-1], function(x) as.numeric(x[-(1:2)])))
         colnames(regdset) <- tmp[[1]][-(1:2)]
         rownames(regdset) <- sapply(tmp[-1], function(x) x[1])
-        annot <- t(sapply(tmp[-1], function(x) x[1:2]))
-        rm(regeset)
+#        annot <- t(sapply(tmp[-1], function(x) x[1:2]))
+#        rm(regeset)
     }
     else {
         regdset <- regeset
-        annot <- rownames(regeset)
-        names(annot) <- rownames(regeset)
-        rm(regeset)
+#        annot <- rownames(regeset)
+#        names(annot) <- rownames(regeset)
+#        rm(regeset)
     }
     # Making dset and regdset compatible
     genes <- intersect(rownames(dset), rownames(regdset))
     samp <- intersect(colnames(dset), colnames(regdset))
-    dset <- dset[match(genes, rownames(dset)), ][, match(samp, colnames(dset))]
-    regdset <- regdset[match(genes, rownames(regdset)), ][, match(samp, colnames(regdset))]
+    dset <- dset[match(genes, rownames(dset)), , drop=FALSE][, match(samp, colnames(dset)), drop=FALSE]
+    regdset <- regdset[match(genes, rownames(regdset)), , drop=FALSE][, match(samp, colnames(regdset)), drop=FALSE]
     #Collapsing interactomes
     switch(format,
            adj={
@@ -140,7 +140,7 @@ aracne2regulon4cnv <- function(afile, eset, regeset, gene = FALSE, format=c("adj
            },
            "3col"={
                tmp <- t(sapply(strsplit(readLines(afile), "\t"), function(x) x[1:3]))
-               aracne <- data.frame(tf=tmp[, 1], target=tmp[, 2], mi=as.numeric(tmp[, 3])/max(as.numeric(tmp[, 3])))
+               aracne <- data.frame(tf=factor(tmp[, 1]), target=factor(tmp[, 2]), mi=as.numeric(tmp[, 3])/max(as.numeric(tmp[, 3])))
            })
     if (gene) {
         if (verbose) message("Collapsing the interactomes to the gene level...")
@@ -154,8 +154,8 @@ aracne2regulon4cnv <- function(afile, eset, regeset, gene = FALSE, format=c("adj
         regdset <- filterCV(regdset)        
     }
     if (verbose) message("Generating the regulon objects...")
-    tmp <- aracne[!is.na(aracne$mi), ]
-    tmp <- tmp[rowSums(matrix(as.matrix(tmp[, 1:2]) %in% rownames(dset), nrow(tmp), 2))==2, ]
+    tmp <- aracne[!is.na(aracne$mi), , drop=FALSE]
+    tmp <- tmp[rowSums(matrix(as.matrix(tmp[, 1:2]) %in% rownames(dset), nrow(tmp), 2))==2, , drop=FALSE]
     aracne <- tapply(1:nrow(tmp), tmp$tf, function(pos, tmp) {
         tfmode <- rep(0, length(pos))
         names(tfmode) <- tmp$target[pos]
